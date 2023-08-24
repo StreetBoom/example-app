@@ -50,17 +50,18 @@
                         </li>
                     @endguest
 
-
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('logout_admin')}}">Выйти из админ
-                            панели</a>
-                    </li>
+                    @can('view', auth()->user())
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{route('logout_admin')}}">Выйти из
+                                админ
+                                панели</a>
+                        </li>
 
 
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{route('login_admin')}}">Админ панель</a>
                     </li>
-
+                    @endcan
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">

@@ -20,11 +20,13 @@ class PostController extends BaseController
 
     public function create()
     {
+        $this->authorize('create', auth()->user());
         return view('posts.create');
     }
 
     public function store(PostRequest $request)
     {
+        $this->authorize('create', auth()->user());
         $data = $request->validated();
         $this->service->store($data);
 
